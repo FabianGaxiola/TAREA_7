@@ -1,0 +1,13 @@
+name: Work 2 Fabian
+on: [push]
+jobs:
+  build-php:
+    runs-on: ubuntu-latest
+    container: php:8.3-cli
+    steps:
+      - run: echo "TESTING PHP"
+      - run: php --version
+      - run: php -r "echo 'Hola desde GitHub Actions con PHP';"
+      - uses: actions/checkout@v3
+      - run: php -l app.php
+      - run: php app.php
